@@ -1,7 +1,7 @@
 import discord, main, websockets
 from discord.ext import commands
 
-TOKEN = 'MzM0NDU5NzY4NjcwNTE5MzEw.DEe2WQ.wLgSaebs_eBxQZ3cSsXPLQSxTok'
+TOKEN = ''
 
 description = '''Logicmn made this.'''
 bot = commands.Bot(command_prefix='!', description=description)
