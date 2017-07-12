@@ -14,7 +14,7 @@ def get_sells(coin, desired_multiplier):
     volume = []
     sells = bittrex.get_orderbook('BTC-{0}'.format(coin), SELL_ORDERBOOK)
     if sells['success'] is False:
-        print(sells['message'])
+        print(sells['message'], '#########################################################')
     for sell in range(1000):
         order = sells['result'][sell]
         quantity = order['Quantity']
