@@ -15,7 +15,7 @@ def get_sells(coin, desired_multiplier):
     sells = bittrex.get_orderbook('BTC-{0}'.format(coin), SELL_ORDERBOOK)
     if sells['success'] is False:
         print(sells['message'], '#########################################################')
-    for sell in range(1000):
+    for sell in range(10000):
         order = sells['result'][sell]
         quantity = order['Quantity']
         rate = order['Rate']
@@ -24,6 +24,7 @@ def get_sells(coin, desired_multiplier):
         last_price = bittrex.get_ticker('BTC-{0}'.format(coin))['result']['Last']
         multiplier = rate / last_price
         multiplier = float("{0:.1f}".format(multiplier))
+        print('{0} | {1}'.format(sell, multiplier))
         if multiplier != desired_multiplier:
             continue
         else:
