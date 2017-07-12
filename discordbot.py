@@ -23,13 +23,15 @@ async def wall(coin, desired_multiplier):
         await bot.say("That's not a percent!")
     desired_multiplier = float("{0:.1f}".format(desired_multiplier))
     try:
-        if desired_multiplier <= 2:
+        if desired_multiplier <= 2.0:
             await bot.say('Calculating...')
-            volume = main.get_sells(coin, desired_multiplier)
+            volume, rate, last_price = main.get_sells(coin, desired_multiplier)
             total_btc = sum(volume)
             total_btc = float("{0:.3f}".format(total_btc))
-            await bot.say('Total of {0} BTC to reach a {1}x multiplier for {2}'.format(total_btc, desired_multiplier, upper(coin)))
-            print('Total of {0} BTC to reach a {1}x multiplier for {2}'.format(total_btc, desired_multiplier, upper(coin)))
+            await bot.say('Total of {0} BTC to reach a {1}x multiplier for {2}'.format(total_btc, desired_multiplier, coin.upper()))
+            await bot.say('Last | New')
+            await bot.say('{0}  | {1}'.format(float(last_price), float(rate)))
+            print('Total of {0} BTC to reach a {1}x multiplier for {2}'.format(total_btc, desired_multiplier, coin.upper()))
         else:
             await bot.say('Please use a multiplier under 2x, apparently I can\'t handle more than that.')
     except:

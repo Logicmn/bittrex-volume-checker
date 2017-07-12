@@ -27,4 +27,4 @@ def get_sells(coin, desired_multiplier):
         if multiplier != desired_multiplier:
             continue
         else:
-            return volume
+            return volume, rate, last_price
