@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import main
 
-TOKEN = 'MzM0NDU5NzY4NjcwNTE5MzEw.DEbilA.B0mG8uA1U4rMJ0EkEhS21W-Q9fs'
+TOKEN = 'bot token'
 
 description = '''Logicmn made this.'''
 bot = commands.Bot(command_prefix='!', description=description)
